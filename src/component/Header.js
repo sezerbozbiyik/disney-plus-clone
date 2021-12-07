@@ -8,7 +8,7 @@ import {
 } from "../features/user/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { auth, provider } from "../firebase";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -25,11 +25,11 @@ function Header() {
             email: user.email,
             photo: user.photoURL,
           })
-        );
-        history.push("/");
+        )
+        history.push("/")
       }
-    });
-  }, []);
+    })
+  }, [])
 
   const signIn = () => {
     auth.signInWithPopup(provider).then((result) => {
@@ -66,6 +66,7 @@ function Header() {
               <img src="/images/home-icon.svg"></img>
               <span>HOME</span>
             </a>
+            
             <a>
               <img src="/images/search-icon.svg"></img>
               <span>SEARCH</span>
